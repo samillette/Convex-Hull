@@ -4,6 +4,12 @@
 #include <cstdlib>
 #include <string>
 
+/**
+
+This file will produce a inputted number of pairs
+
+**/
+
 std::vector< std::pair<int, int> > coordinatePairs;
 
 void generatePairs( int seed, int cardinality ){
