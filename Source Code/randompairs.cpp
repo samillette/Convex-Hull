@@ -1,8 +1,7 @@
-#include <utility>
 #include <iostream>
-#include <vector>
 #include <cstdlib>
 #include <string>
+#include <fstream>
 
 /**
 
@@ -10,28 +9,36 @@ This file will produce a inputted number of pairs
 
 **/
 
-std::vector< std::pair<int, int> > coordinatePairs;
-
 void generatePairs( int seed, int cardinality ){
+
+    std::ofstream outFile;
+    outFile.open( "randomPairs.csv" );
+
     srand(seed);
+
     for(int i = 0; i < cardinality; i++){
-        std::pair<int, int> coordinate;
+
         // uncomment this if we will ever need x and y later
         //int x = rand() % 100;
         //int y = rand() % 100;
-        coordinate.first = rand() % 100;
-        coordinate.second = rand() % 100;
-        coordinatePairs.push_back(coordinate);
+
+        outFile << std::to_string( rand() % 100 ) + ",";
+        outFile << std::to_string( rand() % 100 );
+
+        outFile << "\n";
     }
+    outFile.close();
 
 }
 
 int main(int argc, char**argv) {
+    // gets user inputted randomization seed
     int seed = std::stoi(argv[1]);
-    int numPairs = std::stoi(argv[2]);
-    generatePairs( seed, numPairs );
-    for( int i = 0; i < numPairs; i++){
-        std::cout << coordinatePairs[i].first << ", " << coordinatePairs[i].second << std::endl;
-    }
+
+    // gets user inputted number of vectors
+    int numVec = std::stoi(argv[2]);
+
+    //calls generatePairs
+    generatePairs( seed, numVec );
 }
 
