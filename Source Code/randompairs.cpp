@@ -5,10 +5,11 @@
 
 /**
 
-This file will produce a inputted number of pairs
+This file will produce a inputted number of pairs as a csv file
 
 **/
 
+//forward declared in randompairs.h
 void generatePairs( int seed, int cardinality ){
 
     std::ofstream outFile;
@@ -30,15 +31,3 @@ void generatePairs( int seed, int cardinality ){
     outFile.close();
 
 }
-
-int main(int argc, char**argv) {
-    // gets user inputted randomization seed
-    int seed = std::stoi(argv[1]);
-
-    // gets user inputted number of vectors
-    int numVec = std::stoi(argv[2]);
-
-    //calls generatePairs
-    generatePairs( seed, numVec );
-}
-
