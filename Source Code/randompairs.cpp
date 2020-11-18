@@ -25,6 +25,7 @@ void generatePairs( int seed, int cardinality ){
 
         outFile << std::to_string( rand() % 100 ) + ",";
         outFile << std::to_string( rand() % 100 );
+        outFile << ",-1,-1";
 
         outFile << "\n";
     }
