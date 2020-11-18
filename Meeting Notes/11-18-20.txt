@@ -1,0 +1,5 @@
+- Kang walked us through the algorithm so far
+- Discussed additional algorithms to try after the graham scan is completed based on
+Connor's research
+- Discussed output file layout (csv)
+- Discussed visualization file type
