@@ -1,0 +1,6 @@
+- discussed graham scan
+- discussed potential output file types (DOT, .poly)
+- discussed supplemental algorithms to implement after the required graham scan is completed
+- created meeting schedule
+- discussed what we want to have done by next meeting (11-18-20)
+- discussed use of GitHub to journal who has done what and when
