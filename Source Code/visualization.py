@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 """
 
-
+This file creates a visualization of the convex hull
 
 """
 
