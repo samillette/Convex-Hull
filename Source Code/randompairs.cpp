@@ -1,11 +1,14 @@
-#include <iostream>
 #include <cstdlib>
 #include <string>
 #include <fstream>
 
 /**
 
-This file will produce a inputted number of pairs as a csv file
+This file will produce a inputted number of pairs as a csv file by the form:
+ x1,y1,x2,y2
+
+ All pairs will have their x2 and y2 initialized as -1 and -1
+ x1 and y1 will have positive values between 0 and 99
 
 **/
 
