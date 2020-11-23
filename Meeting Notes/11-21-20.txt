@@ -1,0 +1,5 @@
+- sam completed visualization program
+- sam also changed the GitHub to use branches so we don’t accidentally delete changes we’ve made
+- to do:
+	- get rid of spaces in between coordinates
+- Kang showed near completion of graham scan file.
