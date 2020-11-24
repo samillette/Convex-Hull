@@ -1,7 +1,6 @@
 #include "quickHull.h"
 #include <iostream>
 
-
 Point minX(100,100);
 Point maxX(-1,-1);
 
@@ -39,9 +38,14 @@ std::vector< Point > csvToVector(std::string filePath){
 }
 
 int main () {
-
-    //Point p(1, 2);
     //std::cout << std::to_string(p.getX()) << " " << std::to_string(p.getY()) << std::endl;
 
-    csvToVector("randomPairs.csv");
+    //csvToVector("randomPairs.csv");
+
+    Point p1(1, 6);
+    Point p2(2, 11);
+
+    Line line1(p1, p2);
+    std::cout << std::to_string(line1.getYIntercept()) << " slope: " << std::to_string(line1.getSlope()) << std::endl;
+
 }

@@ -2,6 +2,7 @@
 #define QUICKHULL_H
 
 #include "point.h"
+#include "line.h"
 
 #include <vector>
 #include <fstream>
