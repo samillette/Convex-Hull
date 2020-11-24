@@ -42,10 +42,11 @@ int main () {
 
     //csvToVector("randomPairs.csv");
 
-    Point p1(1, 6);
-    Point p2(2, 11);
+    Point p1(0,5);
+    Point p2(1,7);
 
-    Line line1(p1, p2);
-    std::cout << std::to_string(line1.getYIntercept()) << " slope: " << std::to_string(line1.getSlope()) << std::endl;
+    Point p3(0,5);
 
+    Line line2(p1,p2);
+    std::cout << std::to_string(line2.getSlope()) << " distance: " << std::to_string(line2.getDistanceToPoint(p3)) << std::endl;
 }
