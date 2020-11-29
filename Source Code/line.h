@@ -7,6 +7,9 @@
 
 class Line{
     private:
+        Point p1;
+        Point p2;
+
         //y = mx + b baby
         double slope;
 
@@ -19,10 +22,14 @@ class Line{
     public:
         Line(Point p1, Point p2);
 
+        Point getP1();
+        Point getP2();
+
         double getIntercept();
         double getSlope();
 
         double getDistanceToPoint(Point pExamined);
+        int isPointGreater(Point pExamined);
 };
 
 #endif

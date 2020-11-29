@@ -31,6 +31,10 @@ double Line::calculateYIntercept(Point p1, Point p2, double slope){
  * of 0 between point coordinates, essentially breaking the rest of the code
  */
 Line::Line(Point p1, Point p2){
+
+    this -> p1 = p1;
+    this -> p2 = p2;
+
     //In the case where the slope of the line is not infinite, the two x coordinates are distinct
     if( p2.getX() - p1.getX() != 0 ) {
         // calculate slope normally
@@ -44,6 +48,19 @@ Line::Line(Point p1, Point p2){
         //key difference here, the intercept variable exists to symbolize the x intercept of the vertical line
         this -> intercept = p1.getX();
     }
+}
+
+/**
+ * These functions return the initializer points of the line
+ * @return a point
+ */
+
+Point Line::getP1(){
+    return p1;
+}
+
+Point Line::getP2(){
+    return p2;
 }
 
 /**
@@ -75,6 +92,9 @@ double Line::getDistanceToPoint(Point pExamined){
     if( std::isinf(slope) ){
         return std::abs(intercept - pExamined.getX());
     }
+    else if( slope == 0 ){
+        return std::abs(intercept - pExamined.getY());
+    }
     //In the case where the line itself is Nan, return Nan
     else if( slope != slope){
         return slope;
@@ -97,5 +117,17 @@ double Line::getDistanceToPoint(Point pExamined){
         double deltaY = std::abs(yPointOfInterception - pExamined.getY());
 
         return std::sqrt(std::pow(deltaX, 2.0) + std::pow(deltaY, 2.0));
+    }
+}
+
+int Line::isPointGreater(Point pExamined){
+    if( pExamined.getY() > (slope * pExamined.getX()) + intercept ){
+        return 1;
+    }
+    else if( pExamined.getY() < (slope * pExamined.getX()) + intercept ){
+        return -1;
+    }
+    else{
+        return 0;
     }
 }
