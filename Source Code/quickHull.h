@@ -5,10 +5,12 @@
 #include "line.h"
 
 #include <vector>
-#include <fstream>
 #include <string>
-#include <sstream>
 
-std::vector< Point > csvToVector(std::string filePath);
+std::vector< Point > quickHullDivideBase(std::vector < Point > setOfPoints, Line dividingSegment);
+
+std::vector< Point > quickHull(std::vector< Point > allPoints);
+
+void quickHull( std::string inFilePath );
 
 #endif
