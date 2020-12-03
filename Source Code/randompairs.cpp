@@ -3,6 +3,12 @@
 #include <fstream>
 
 /**
+    Samuel Millette
+	12.3.2020
+	For my CSC212 class take fall of 2020 at the University of Rhode Island
+ */
+
+/**
 
 This file will produce a inputted number of pairs as a csv file by the form:
  x1,y1,x2,y2

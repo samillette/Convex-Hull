@@ -1,5 +1,11 @@
 #include "convexFileHandling.h"
 
+/**
+    Samuel Millette
+	12.3.2020
+	For my CSC212 class take fall of 2020 at the University of Rhode Island
+ */
+
 std::vector< Point > csvToVector(std::string filePath, Point & minX, Point & maxX){
     std::vector< Point > pointVec;
 
