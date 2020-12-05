@@ -1,6 +1,4 @@
-#include <cstdlib>
-#include <string>
-#include <fstream>
+#include "randompairs.h"
 
 /**
 

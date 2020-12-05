@@ -1,5 +1,4 @@
 #include "quickHull.h"
-#include "convexFileHandling.h"
 
 //TODO: ask about defining these global variables in a header file, benefits, keywords, etc.
 Point minX(100,100);

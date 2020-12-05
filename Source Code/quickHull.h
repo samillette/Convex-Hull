@@ -3,6 +3,7 @@
 
 #include "point.h"
 #include "line.h"
+#include "convexFileHandling.h"
 
 #include <vector>
 #include <string>
