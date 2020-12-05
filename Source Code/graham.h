@@ -12,7 +12,7 @@ struct Point
 {
     double x;       // Check x-axis coordinate (left or right)
     double y;       // Check y-axis coordinate (up or down)
-}
+};
 
 class Graham
 {
