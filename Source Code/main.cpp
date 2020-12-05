@@ -1,3 +1,4 @@
+//#include "graham.h"
 #include "quickHull.h"
 #include "randompairs.h"
 
@@ -17,6 +18,7 @@ int main(){
     int decision;
     std::cin >> decision;
     if( decision == 1 ) {
+        //graham( "randomPairs.csv" );
         return 1;
     }
     else{
