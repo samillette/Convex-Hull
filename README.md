@@ -5,6 +5,14 @@ This project is the compilation of all things related to my group's work on our 
 # Convex-Hull
 In order to better understand our project itself, its important to understand the mathematical concept behind our project, the **Convex Hull**.
 
+Convex Hulls have many real life applications:
+  - Collision avoidance
+      - In video games
+      - roomba/robotics
+  - Tracking Disease Epidemic
+  - Nuclear/Chemical Leak Evacuation
+  - Basketball
+
 
 
 # Graham Scan
