@@ -30,3 +30,13 @@ We chose to go a step further and do an additional algorithm for comparison with
 # About this code
 This project's algorithms are written in c++ 2011, and the visualization tool is written in python 3.
 
+# Instructions to produce a convex hull visualization
+We utilized the benefits of a *Makefile* to run and compile our programs more efficiently than typing them in individually.
+To use this you can type the following commands into the terminal:
+
+  make
+  ./output
+  
+and that compiles every .cpp file we used
+
+
