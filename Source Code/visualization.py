@@ -4,6 +4,12 @@ from os import path
 
 import matplotlib.pyplot as plt
 
+'''
+    Samuel Millette
+    12.3.2020
+    For my CSC212 class take fall of 2020 at the University of Rhode Island
+'''
+
 """
 
 This file creates a visualization of the convex hull

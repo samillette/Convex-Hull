@@ -1,9 +1,28 @@
 #include "line.h"
 
-//This function is only called in the case where we know the two points used for making the line are distinct
+/**
+    Samuel Millette
+	12.3.2020
+	For my CSC212 class take fall of 2020 at the University of Rhode Island
+ */
+
+/**
+ * This class is used for calculations in 'quickHull.cpp'
+ */
+
 //TODO: revise this to remove the closest point, redundant as computers don't need math
 //TODO: to be made simpler by using the point closest to the y axis like us monkeys
-//TODO: also make the function comment in the style of the others
+/**
+ * This function calculates the Y intercept of the parent line.
+ * This function is only called in the case where we know the two points used for making the line are distinct.
+ *  That is, this function is called when the two points will not generate an infinite or illegal line.
+ *
+ * @param p1: A point
+ * @param p2: A point
+ * @param slope: A double that represents the slope of the parent line
+ * @return: a double representing the y coordinate of the y intercept
+ */
+
 double Line::calculateYIntercept(Point p1, Point p2, double slope){
     //attempting
     int p1XAbsoluteVal = abs(p1.getX());
@@ -119,6 +138,13 @@ double Line::getDistanceToPoint(Point pExamined){
         return std::sqrt(std::pow(deltaX, 2.0) + std::pow(deltaY, 2.0));
     }
 }
+
+/**
+ * This function takes in a point and returns whether the point lies above, below, or on the parent line.
+ *
+ * @param pExamined: A point
+ * @return: 1 where point lies above, 0 where point lies on, and -1 where point lies below
+ */
 
 int Line::isPointGreater(Point pExamined){
     if( pExamined.getY() > (slope * pExamined.getX()) + intercept ){
