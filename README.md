@@ -21,6 +21,15 @@ Our task was to code the [Graham Scan Algorithm](https://en.wikipedia.org/w/inde
 <p align="center"><img width=20% src="https://github.com/samillette/Convex-Hull/blob/main/Presentation%20Materials/GrahamScanDemo.gif"></p>
 <p align="center">The Graham Scan Algorithm</p>
 
+The Graham Scan Algorithm follows these steps:
+- Finds the lowest point (Y-axis) and the left-most point (X-axis)
+- Sort the points by polar angle in a counterclockwise order
+- Check for collinear points (The distance = 0) 
+- Determine if three points make a left or right turn 
+- Create two vectors type - Push points to hull vector that are convexed points 
+- Push points to disregardSet vector that are concaved points 
+- Store points into a CSV file
+
 # Quickhull
 We chose to go a step further and do an additional algorithm for comparison with the Graham Scan Algorithm. The additional algorithm implemented was the [Quickhull Algorithm](https://en.wikipedia.org/w/index.php?title=Quickhull&oldid=986184164).
 
