@@ -37,3 +37,19 @@ The quickhull algorithm follows these steps:
 # About this code
 This project's algorithms are written in c++ 2011, and the visualization tool is written in python 3.
 
+# Instructions to produce a convex hull
+Download this repository and navigate to the `Source Code` folder of this repository.
+
+We utilized the benefits of a `Makefile` to run and compile our programs more efficiently than typing them in individually.
+To use this you can type the following commands into the terminal:
+
+ 1. `make`
+ 2. `./output`
+  
+this compiles every `.cpp` file we used. Next comes the user input. At this step, the program will now ask you to input the number of pairs
+and a seed to produce a randomized set of pairs. The last input is to enter a `1` if you'd like to create a convex hull using the Graham Scan algorithm,
+or a `2` if you'd like to do it using the quickhull algorithm.
+
+After the input is entered and the file runs, it outputs either `grahamPairs.csv` or `quickhullPairs.csv` depending on which alogrithm you chose. These `.csv` contain the set of points in a way that can be interpreted by the visualization program.
+
+To run this python program, you will need to have matplotlib installed. You should use the latest release of python. If you do not have matplotlib installed on your machine, you can find instructions [here](https://matplotlib.org/3.3.3/users/installing.html/ "Title"). If it is installed, enter `python3 visualization.py` and it will ask for the location of the `.csv` file to which you enter either `grahamPairs.csv` or `quickhullPairs.csv`, again, depending on what algorithm you chose before.
