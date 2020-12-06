@@ -1,87 +1,64 @@
-#include "Graham.h"
+/* Sort the points lexicograpphically by polar angle.
+ * If there are three collinear points, disregard the middle point.
+ * It cannot be part of the final convex hull so there is no point
+ * in even considering it.
+ */
+
+//
+
+#ifndef __GRAHAM_H__
+#define __GRAHAM_H__
+
+#include <stdlib.h>
+#include <stdio.h>
 #include <iostream>
+#include <string>
 #include <vector>
+#include <sstream>
 #include <fstream>
-#include <stdlib.h>     // Convert string
-#include <limits>       // Infinity
 #include <algorithm>    // std::sort
-#include <stack>
+#include <cmath>        // Mathematical operations and transformations
 
-Graham::Graham(double x_Val, double y_Val)
+
+// Define a variable of a structure type
+typedef struct Point
 {
-    x = x_Val;
-    y = y_Val;
-}
+    // double angle;   // Polar angle
+    int x;       // Check x-axis coordinate (left or right)
+    int y;       // Check y-axis coordinate (up or down)
 
-void readFile(std::string fname, std::vector<std::vector<int>> & grid)
+} Point;
+
+class Graham
 {
-    // Open the file
-    std::ifstream input(fname);
-    std::string row;
+    private:
 
-    // Loop through the data row by row
-    while(std::getline(input, row))
-    {
-        std::stringstream ss(row);      // Parsing the data --> turn it into string string
-        std::vector< pair <double, double> > c_Points;   // Vector of pairs to store the data
+        std::string fname;  // File name
 
-        // Check 'auto' type
-        double value1;
-        double value2;
+        // Vector to store the set of points and convex hull
+        std::vector<Point> pointSet, hull, disregardSet;
 
-        // Inserting values into vector pairs
-        while(ss >> value)
-        {
-            c_Points.push_back(make_pair(value1, value2))
-        }
-    }
-}
 
-double addPoint(stack<Point> & Stack)
-{
-    // Check number of points < 3 = no convex hull
-    if(c_points.size() < 3)
-    {
-        return;
-    }
-    // Push the first three points
-   stack.push(p0);
-   stack.push(p1);
-   stack.push(p2);
+    public:
 
-    for (int i = 3; i < c_points.size(); i++)
-    {
-        // Push the next point to the stack
-        // Check the point
-        // Remove if(clockwise) --> Left
-        // Add to stack if(counterclockwise) --> Right
-    }
+        Graham(std::string fname);   // Constructor
+        Graham();
+        ~Graham();
 
-}
+        // // Find the polar angle between 3 points
+        int polarAngle(Point P1, Point P2, Point P3);
 
-double getCrossProduct(Point p, Point q, Point r)
-{
-    // If the result is negative, then the three points are rotating right in a clockwise direction.
-    // Get rid of second point 'q', because it is inside the convex hull.
+        // // Find the distance
+        int distance(Point P1, Point P2);
 
-    return ((q[0]) - p[0])*r[1] - p[1])) - ((q[1] - p[1]) * (r[0] - p[0]));
-}
+        // // Graham Scan Algorithm
+        std::vector<Point> Graham_Scan(std::vector<Point> pointSet, std::vector<Point> hull);
 
-double getSlope(p1, p2)
-{
-    if p1[0] == p2[0]
-    {
-        // Don't return 1 or 0 --> They are slopes
-        // Return infinity
-        return std::numeric_limits<double>::infinity();
-    }
-    else
-    {
-        return 1.0 * (p1[1] - p2[1]) / (p1[0]-p2[0]);
-    }
-    // Compare slope in unit circle
+        // Store points from read file
+        void storePoints(std::string fname);
 
-    // Recursively sort into orderly slope
-    //std::sort(getSlope(p, start), (p[1],p[0]))
+        // Write to CSV file
+        void hullToCSV();
+};
 
-}
+#endif /* __GRAHAM_H__ */
