@@ -21,9 +21,8 @@
 // Define a variable of a structure type
 typedef struct Point
 {
-
-    int x;       // Check x-axis coordinate (left or right)
-    int y;       // Check y-axis coordinate (up or down)
+    int x;       // x-value
+    int y;       // y-value
 
 } Point;
 
@@ -39,7 +38,9 @@ class Graham
 
     public:
 
-        Graham(std::string fname);   // Constructor
+        Graham(std::string fname);
+
+        // Constructor
         Graham();
 
         // Destructor
@@ -60,6 +61,7 @@ class Graham
         // Write to CSV file
         void hullToCSV();
 
+        // Run the algorithm
         void Graham_Scan_Algorithm();
 };
 
