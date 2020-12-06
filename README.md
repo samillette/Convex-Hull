@@ -47,4 +47,4 @@ After the input is entered and the file runs, it outputs either `grahamPairs.csv
 
 To run this python program, you will need to have matplotlib installed. You should use the latest release of python. If you do not have matplotlib installed on your machine, you can find instructions (https://matplotlib.org/3.3.3/users/installing.html/ "here"). If it is installed you enter `python3 visualization.py` and it will ask for the location of the `.csv` file to which you enter either `grahamPairs.csv` or `quickhullPairs.csv`, again depending on what algorithm you chose before.
 
-
+This is [an example](http://example.com/ "Title") inline link.
