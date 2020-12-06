@@ -4,55 +4,61 @@
  * in even considering it.
  */
 
+//
+
 #ifndef __GRAHAM_H__
 #define __GRAHAM_H__
 
 #include <stdlib.h>
-#include <stack>
+#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <sstream>
+#include <fstream>
+#include <algorithm>    // std::sort
+#include <cmath>        // Mathematical operations and transformations
+
 
 // Define a variable of a structure type
-struct point
+typedef struct Point
 {
-    point *next;    // pointer to next node
-    point *prev;    // Pointer to previous node
-    
-    double angle;   // Polar angle
-    double x;       // Check x-axis coordinate (left or right)
-    double y;       // Check y-axis coordinate (up or down)
-};
+    // double angle;   // Polar angle
+    int x;       // Check x-axis coordinate (left or right)
+    int y;       // Check y-axis coordinate (up or down)
+
+} Point;
 
 class Graham
 {
     private:
-        point p0;      // Starting point --> Head (Bottom-most or left-most)
-        point pN;      // Ending point --> Tail
-        std::stack <double> stack;    // Create the stack
-        bool show_Progress; // Show the status of the points
+
+        std::string fname;  // File name
+
+        // Vector to store the set of points and convex hull
+        std::vector<Point> pointSet, hull, disregardSet;
+
 
     public:
 
-        Graham(double, double);
+        Graham(std::string fname);   // Constructor
+        Graham();
+        ~Graham();
 
+        // // Find the polar angle between 3 points
+        int polarAngle(Point P1, Point P2, Point P3);
 
-        double addpoint(std::stack<point> & Stack);  // Add the next CONNECTED point to the stack
-        double Alignment(point p, point q, point r);
-        double getCrossProduct(point p, point q, point r);  //(Positive or Negative) Area of Parallelogram
-        double getSlope(point p, point q);    // sort points in counterclockwise order by their slope (2 points)
-        double getDistance(point p, point q); // Get distance from two points
+        // // Find the distance
+        int distance(Point P1, Point P2);
 
-        // New work
-        double polarAngle(point p, point q);    // Find polar angle
-        double distance(point p, point q);      // Find distance
-        double quicksort(double[]);             // Quick sort the points
-        
-        // From File
-        void graham_Scan(point *P);     // Algorithm
+        // // Graham Scan Algorithm
+        std::vector<Point> Graham_Scan(std::vector<Point> pointSet, std::vector<Point> hull);
 
-        // Read File
-        void readFile(std::string fname, std::vector< std::vector< std::pair <double, double>>>);
+        // Store points from read file
+        void storePoints(std::string fname);
 
-    // Output
- // (1,2,4,5) 
+        // Write to CSV file
+        void hullToCSV();
 };
 
 #endif /* __GRAHAM_H__ */
