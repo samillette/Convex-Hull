@@ -1,10 +1,8 @@
-/* Sort the points lexicograpphically by polar angle.
- * If there are three collinear points, disregard the middle point.
- * It cannot be part of the final convex hull so there is no point
- * in even considering it.
+/*  Author: Kang Liu
+ *  Program: Graham Scan
+ *  This header file declares the functions, variables, and class for Graham.cpp
+ *  10 December, 2020
  */
-
-//
 
 #ifndef __GRAHAM_H__
 #define __GRAHAM_H__
@@ -23,7 +21,7 @@
 // Define a variable of a structure type
 typedef struct Point
 {
-    // double angle;   // Polar angle
+
     int x;       // Check x-axis coordinate (left or right)
     int y;       // Check y-axis coordinate (up or down)
 
@@ -35,14 +33,16 @@ class Graham
 
         std::string fname;  // File name
 
-        // Vector to store the set of points and convex hull
-        std::vector<Point> pointSet, hull, disregardSet;
+        // Vector to store the set of points, convex points, and concave points
+        std::vector<Point> pointSet, hullSet, concaveSet;
 
 
     public:
 
         Graham(std::string fname);   // Constructor
         Graham();
+
+        // Destructor
         ~Graham();
 
         // // Find the polar angle between 3 points
@@ -52,13 +52,16 @@ class Graham
         int distance(Point P1, Point P2);
 
         // // Graham Scan Algorithm
-        std::vector<Point> Graham_Scan(std::vector<Point> pointSet, std::vector<Point> hull);
+        std::vector<Point> Graham_Scan(std::vector<Point> pointSet, std::vector<Point> hullSet);
 
         // Store points from read file
         void storePoints(std::string fname);
 
         // Write to CSV file
         void hullToCSV();
+
+        // Run the Graham Scan Algorithm
+        void Graham_Scan_Algorithm();
 };
 
 #endif /* __GRAHAM_H__ */
