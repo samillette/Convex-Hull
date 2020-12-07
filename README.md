@@ -39,7 +39,7 @@ To use this you can type the following commands into the terminal:
  1. `make`
  2. `./output`
   
-this compiles every `.cpp` file we used. Next comes the user input. At this step, the program will now ask you to input the number of pairs
+this compiles every `.cpp` file we used. Next comes the user input, you can either use a set of random pairs or a dataset with the location of every shot Kobe took in the NBA. If you chose the random pairs option,the program will now ask you to input the number of pairs
 and a seed to produce a randomized set of pairs. The last input is to enter a `1` if you'd like to create a convex hull using the Graham Scan algorithm,
 or a `2` if you'd like to do it using the quickhull algorithm.
 
