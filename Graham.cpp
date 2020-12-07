@@ -206,7 +206,11 @@ std::vector<Point> Graham::Graham_Scan(std::vector<Point> pointSet, std::vector<
     return hullSet;
 }
 
+<<<<<<< HEAD
 // Execute Graham Scan
+=======
+
+>>>>>>> 86a0fed12e864dfe2b0604707ce87d18fa59456b
 void Graham::Graham_Scan_Algorithm()
 {
     storePoints(fname);
