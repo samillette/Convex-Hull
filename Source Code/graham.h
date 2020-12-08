@@ -1,35 +1,68 @@
-/* Sort the points lexicograpphically by polar angle.
- * If there are three collinear points, disregard the middle point.
- * It cannot be part of the final convex hull so there is no point
- * in even considering it.
+/*  Author: Kang Liu
+ *  Program: Graham Scan
+ *  This header file declares the functions, variables, and class for Graham.cpp
+ *  10 December, 2020
  */
 
 #ifndef __GRAHAM_H__
 #define __GRAHAM_H__
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <sstream>
+#include <fstream>
+#include <algorithm>    // std::sort
+#include <cmath>        // Mathematical operations and transformations
+
+
 // Define a variable of a structure type
-struct Point
+typedef struct Vertex
 {
-    double x;       // Check x-axis coordinate (left or right)
-    double y;       // Check y-axis coordinate (up or down)
-};
+    int x;       // x-value
+    int y;       // y-value
+
+} Vertex;
 
 class Graham
 {
     private:
 
-        Point p0;      // Starting point --> Head (Bottom-most or left-most)
-        Point pN;      // Ending point --> Tail
+        std::string fname;  // File name
+
+        // Vector to store the set of points, convex points, and concave points
+        std::vector<Vertex> pointSet, hullSet, concaveSet;
+
 
     public:
 
-        double addPoint(stack<Point> & Stack);  // Add the next CONNECTED point to the stack
-        double Alignment(Point p, Point q, Point r);
-        double getCrossProduct(Point p, Point q, Point r);  //(Positive or Negative) Area of Parallelogram
-        double getSlope(p1, p2);    // sort points in counterclockwise order by their slope (2 Points)
-        double getDistance(p1, p2); // Get distance from two points
-        void readFile(std::string fname, std::vector<std::vector<int>> & grid);
+        Graham(std::string fname);
 
-}
+        // Constructor
+        Graham();
+
+        // Destructor
+        ~Graham();
+
+        // // Find the polar angle between 3 points
+        int polarAngle(Vertex P1, Vertex P2, Vertex P3);
+
+        // // Find the distance
+        int distance(Vertex P1, Vertex P2);
+
+        // // Graham Scan Algorithm
+        std::vector<Vertex> Graham_Scan(std::vector<Vertex> pointSet, std::vector<Vertex> hullSet);
+
+        // Store points from read file
+        void storePoints(std::string fname);
+
+        // Write to CSV file
+        void hullToCSV();
+
+        // Run the algorithm
+        void Graham_Scan_Algorithm();
+};
 
 #endif /* __GRAHAM_H__ */
