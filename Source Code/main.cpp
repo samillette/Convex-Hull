@@ -32,7 +32,7 @@ int main(){
         quickHull( decisionOrFile );
     }
 
-    std::cout << "Depending on if you called graham scan or quickhull the output file will be named either XXX or quickhullPairs.csv" << std::endl;
+    std::cout << "Depending on if you called graham scan or quickhull the output file will be named either 'grahamPairs.csv' or 'quickhullPairs.csv'" << std::endl;
     std::cout << "To visualize the data, run 'python3 visualization.py'. The file will ask for the name of the file you wish to analyze, see previous line." << std::endl;
     return 1;
 }

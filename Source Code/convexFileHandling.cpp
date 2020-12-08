@@ -26,13 +26,17 @@ std::vector< Point > csvToVector(std::string filePath, Point & minX, Point & max
         y = std::stoi (value);
 
         Point p(x, y);
-        pointVec.push_back(p);
 
         if( p.getX() < minX.getX() ){
             minX = p;
         }
-        if( p.getX() > maxX.getX() ){
+        else if( p.getX() > maxX.getX() ){
             maxX = p;
+        }
+        //Only in the case where the point considered is not a max or min x point is it added to the vector of points
+        //This is an important distinction because it ensures that minx and maxx are not considered in any comparisons
+        else{
+            pointVec.push_back(p);
         }
     }
 
