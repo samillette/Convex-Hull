@@ -56,7 +56,7 @@ To use this you can type the following commands into the terminal:
  2. `./output`
   
 this compiles every `.cpp` file we used. Next comes the user input. At this step, the program will now ask you to input the number of pairs
-and a seed to produce a randomized set of pairs. The last input is to enter a `1` if you'd like to create a convex hull using the Graham Scan algorithm,
+and a seed to produce a randomized set of pairs. If you chose to use your own data, make sure the `.csv` file contains two columns, one with x coordinate values and the other column with y coordinate values. The last input is to enter a `1` if you'd like to create a convex hull using the Graham Scan algorithm,
 or a `2` if you'd like to do it using the quickhull algorithm.
 
 After the input is entered and the file runs, it outputs either `grahamPairs.csv` or `quickhullPairs.csv` depending on which alogrithm you chose. These `.csv` contain the set of points in a way that can be interpreted by the visualization program.
