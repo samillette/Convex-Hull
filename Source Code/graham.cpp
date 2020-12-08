@@ -119,7 +119,7 @@ int Graham::distance(Vertex P1, Vertex P2)
 }
 
 // Graham Scan Algorithm
-std::vector<Vertex> Graham::Graham_Scan(std::vector<Vertex> VertexSet, std::vector<Vertex> hullSet)
+std::vector<Vertex> Graham::Graham_Scan(std::vector<Vertex> pointSet, std::vector<Vertex> hullSet)
 {
 
     int i, j;
