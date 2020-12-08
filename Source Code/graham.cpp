@@ -160,11 +160,13 @@ std::vector<Vertex> Graham::Graham_Scan(std::vector<Vertex> pointSet, std::vecto
 
         for(j = i+1; j < n; j++)
         {
+
             // angle has an angle value greater than 0
-            int angle = polarAngle(pointSet[j], pointSet[min_Y], pointSet[0]);
+            int angle1 = polarAngle(pointSet[j], pointSet[min_Y], pointSet[0]);
+            int angle2 = polarAngle(pointSet[j], pointSet[min_Y], pointSet[0]);
 
             // The current angle has value greater than or equal to 0
-            if((angle > 0) || (angle == 0) && distance(pointSet[0], pointSet[j]) < distance(pointSet[0], pointSet[min_Y]))
+            if((angle1 > 0) || (angle2 == 0) && distance(pointSet[0], pointSet[j]) < distance(pointSet[0], pointSet[min_Y]))
             {
                 // polar angle is stored in the minimum point
                 min_Y = j;
