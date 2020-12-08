@@ -5,7 +5,7 @@
  *  10 December, 2020
  */
 
-#include "Graham.h"
+#include "graham.h"
 
 // Constructor
 Graham::Graham(std::string fname)
