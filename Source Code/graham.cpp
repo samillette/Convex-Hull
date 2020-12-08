@@ -138,7 +138,7 @@ std::vector<Vertex> Graham::Graham_Scan(std::vector<Vertex> pointSet, std::vecto
     // Finds the lowest point (Y) and left-most (X)
     for(int i = 1; i < n; i++)
     {
-        if(pointSet[i].y < pointSet[min_Y].y || pointSet[i].y == pointSet[min_Y].y && pointSet[i].x < pointSet[min_Y].x)
+        if((pointSet[i].y < pointSet[min_Y].y) || (pointSet[i].y == pointSet[min_Y].y) && (pointSet[i].x < pointSet[min_Y].x))
         {
             // Set min_Y to current i-value
             min_Y = i;
@@ -164,7 +164,7 @@ std::vector<Vertex> Graham::Graham_Scan(std::vector<Vertex> pointSet, std::vecto
             int angle = polarAngle(pointSet[j], pointSet[min_Y], pointSet[0]);
 
             // The current angle has value greater than or equal to 0
-            if(angle > 0 || angle == 0 && distance(pointSet[0], pointSet[j]) < distance(pointSet[0], pointSet[min_Y]))
+            if((angle > 0) || (angle == 0) && distance(pointSet[0], pointSet[j]) < distance(pointSet[0], pointSet[min_Y]))
             {
                 // polar angle is stored in the minimum point
                 min_Y = j;
