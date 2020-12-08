@@ -1,11 +1,14 @@
-output: main.o quickHull.o randompairs.o point.o line.o convexFileHandling.o
-	g++ main.o quickHull.o randompairs.o point.o line.o convexFileHandling.o -o output
+output: main.o quickHull.o graham.o randompairs.o point.o line.o convexFileHandling.o
+	g++ main.o quickHull.o graham.o randompairs.o point.o line.o convexFileHandling.o -o output
 
 main.o: main.cpp
 	g++ -c main.cpp
 
 quickHull.o: quickHull.cpp
 	g++ -c quickHull.cpp
+
+graham.o: graham.cpp
+	g++ -c graham.cpp
 
 randompairs.o: randompairs.cpp
 	g++ -c randompairs.cpp

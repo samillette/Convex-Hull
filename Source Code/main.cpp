@@ -1,4 +1,4 @@
-//#include "graham.h"
+#include "graham.h"
 #include "quickHull.h"
 #include "randompairs.h"
 
@@ -26,8 +26,7 @@ int main(){
     int algorithm;
     std::cin >> algorithm;
     if( algorithm == 1 ) {
-        //graham( decisionOrFile );
-        return 1;
+        Graham graham( decisionOrFile );
     }
     else{
         quickHull( decisionOrFile );
