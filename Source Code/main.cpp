@@ -14,6 +14,10 @@ int main(){
         std::cout << "Number of items in random set: ";
         int items;
         std::cin >> items;
+        while( items < 3 ){
+            std::cout << "Enter a number greater than 2: ";
+            std::cin >> items;
+        }
         std::cout << "Please enter the seed: ";
         int seed;
         std::cin >> seed;
