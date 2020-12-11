@@ -61,7 +61,6 @@ std::vector< Point > quickHullDivide(std::vector < Point > setOfPoints, Line div
      * then checking if a point lies above one of the new segments would not be useful in seeing if the
      * point lies outside of the generated triangle.
      */
-    //todo find bug here, furthest is getting added to both the disregard and the set of points / hull
     for( int i = 0; i < setOfPoints.size(); i++ ){
         //As long as the point being considered is not the furthest point
         if( furthest.getX() != setOfPoints[i].getX() && furthest.getY() != setOfPoints[i].getY() ) {
