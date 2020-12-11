@@ -14,6 +14,10 @@ int main(){
         std::cout << "Number of items in random set: ";
         int items;
         std::cin >> items;
+        while( items < 3 ){
+            std::cout << "Enter a number greater than 2: ";
+            std::cin >> items;
+        }
         std::cout << "Please enter the seed: ";
         int seed;
         std::cin >> seed;
@@ -32,7 +36,7 @@ int main(){
         quickHull( decisionOrFile );
     }
 
-    std::cout << "Depending on if you called graham scan or quickhull the output file will be named either XXX or quickhullPairs.csv" << std::endl;
+    std::cout << "Depending on if you called graham scan or quickhull the output file will be named either 'grahamPairs.csv' or 'quickhullPairs.csv'" << std::endl;
     std::cout << "To visualize the data, run 'python3 visualization.py'. The file will ask for the name of the file you wish to analyze, see previous line." << std::endl;
     return 1;
 }

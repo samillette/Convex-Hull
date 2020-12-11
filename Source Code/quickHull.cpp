@@ -40,9 +40,10 @@ std::vector< Point > quickHullDivide(std::vector < Point > setOfPoints, Line div
         }
     }
 
-    //In the case where there are no points that lie away from the dividing line segment, distance remains unchanged
-    //Return nothing, this section of the hull is already encircled by the dividing line segment
+    //In the case where there are no points that lie away from the dividing line segment but there are points to be considered
+    //Return nothing and discard all points, this section of the hull is already encircled by the dividing line segment
     if( distance == 0 ){
+
         return hull;
     }
 
@@ -60,19 +61,22 @@ std::vector< Point > quickHullDivide(std::vector < Point > setOfPoints, Line div
      * then checking if a point lies above one of the new segments would not be useful in seeing if the
      * point lies outside of the generated triangle.
      */
-
     for( int i = 0; i < setOfPoints.size(); i++ ){
-        //If the comparison orientation is the same as where the point lies, add point to left array
-        if( aboveDividingSegment == ( leftLine.isPointGreater(setOfPoints[i] ) == 1) ){
-            leftPoints.push_back(setOfPoints[i]);
-        }
-        //If same as above, add point to right array
-        else if( aboveDividingSegment == ( rightLine.isPointGreater(setOfPoints[i]) == 1) ){
-            rightPoints.push_back(setOfPoints[i]);
-        }
-        //If the point lies neither outside the right line nor outside the left, add to discard array
-        else if( setOfPoints[i].getX() != furthest.getX() && setOfPoints[i].getY() != furthest.getY() ){
-            disregardedPoints.push_back(setOfPoints[i]);
+        //As long as the point being considered is not the furthest point
+        if( furthest.getX() != setOfPoints[i].getX() && furthest.getY() != setOfPoints[i].getY() ) {
+
+            //If the comparison orientation is the same as where the point lies, add point to left array
+            if (aboveDividingSegment == (leftLine.isPointGreater(setOfPoints[i]) == 1)) {
+                leftPoints.push_back(setOfPoints[i]);
+            }
+                //If same as above, add point to right array
+            else if (aboveDividingSegment == (rightLine.isPointGreater(setOfPoints[i]) == 1)) {
+                rightPoints.push_back(setOfPoints[i]);
+            }
+                //If the point lies neither outside the right line nor outside the left, add to discard array
+            else {
+                disregardedPoints.push_back(setOfPoints[i]);
+            }
         }
     }
 
@@ -120,6 +124,9 @@ std::vector< Point > quickHullBase(std::vector< Point > allPoints){
         }
         else if( minMaxLine.isPointGreater(allPoints[i]) == -1){
             lowerSet.push_back(allPoints[i]);
+        }
+        else{
+            disregardedPoints.push_back(allPoints[i]);
         }
     }
 
