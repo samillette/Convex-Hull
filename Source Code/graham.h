@@ -38,9 +38,8 @@ class Graham
 
     public:
 
-        Graham(std::string fname);
-
         // Constructor
+        Graham(std::string fname);
         Graham();
 
         // Destructor
