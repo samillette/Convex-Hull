@@ -121,9 +121,8 @@ int Graham::distance(Vertex P1, Vertex P2)
 // Graham Scan Algorithm
 std::vector<Vertex> Graham::Graham_Scan(std::vector<Vertex> pointSet, std::vector<Vertex> hullSet)
 {
+    int min_Y = 0;      // Minimum y-value
 
-    int i, j;
-    int min_Y = 0;
     int top = 2;        // Removing top points
 
     Vertex tmp;                  // temporary point
@@ -135,10 +134,13 @@ std::vector<Vertex> Graham::Graham_Scan(std::vector<Vertex> pointSet, std::vecto
         return hullSet;
     }
 
+    int i, j;   // For-loop counter
+
     // Finds the lowest point (Y) and left-most (X)
     for(int i = 1; i < n; i++)
     {
-        if((pointSet[i].y < pointSet[min_Y].y) || (pointSet[i].y == pointSet[min_Y].y) && (pointSet[i].x < pointSet[min_Y].x))
+        if( (pointSet[i].y < pointSet[min_Y].y) ||
+        (pointSet[min_Y].y == pointSet[i].y && pointSet[i].x < pointSet[min_Y].x))
         {
             // Set min_Y to current i-value
             min_Y = i;
@@ -160,13 +162,12 @@ std::vector<Vertex> Graham::Graham_Scan(std::vector<Vertex> pointSet, std::vecto
 
         for(j = i+1; j < n; j++)
         {
-            // angle has an angle value greater than 0
-            int angle = polarAngle(pointSet[j], pointSet[min_Y], pointSet[0]);
-
             // The current angle has value greater than or equal to 0
-            if((angle > 0) || (angle == 0) && distance(pointSet[0], pointSet[j]) < distance(pointSet[0], pointSet[min_Y]))
+            if((polarAngle(pointSet[j], pointSet[min_Y], pointSet[0]) > 0)
+            || ((polarAngle(pointSet[j], pointSet[min_Y], pointSet[0]) == 0)
+            && (distance(pointSet[0], pointSet[j]) < distance(pointSet[0], pointSet[min_Y]))))
             {
-                // polar angle is stored in the minimum point
+                // minimum y-value's polar angle is stored in the minimum point
                 min_Y = j;
             }
         }
@@ -185,28 +186,32 @@ std::vector<Vertex> Graham::Graham_Scan(std::vector<Vertex> pointSet, std::vecto
     // Find the rest of the points n-3
     for(i = 3; i < n; i++)
     {
-        // Not left-turn
+        // Right-turn (clockwise) and collinear
         while(polarAngle(pointSet[i], hullSet[top], hullSet[top-1]) >= 0)
         {
+                 // Push the pop_back value
+                concaveSet.push_back(hullSet[top]);
+
+                // If collinear, pop_back the point in the concave set
+                if(polarAngle(pointSet[i], hullSet[top], hullSet[top-1]) == 0)
+                {
+                    concaveSet.pop_back();
+                }
+
             top--;
-
-            // Store the value before pop_back
-            auto value = hullSet.back();
             hullSet.pop_back();
-
-            // Push the pop_back value
-            concaveSet.push_back(value);
+            // Store the value before pop_back
         }
 
-        // Point connecting the current point to the all points
+        // convex points
         hullSet.push_back(pointSet[i]);
         ++top;
-
     }
+
     return hullSet;
 }
 
-
+// Compile the Graham Scan Algorithm
 void Graham::Graham_Scan_Algorithm()
 {
     storePoints(fname);
